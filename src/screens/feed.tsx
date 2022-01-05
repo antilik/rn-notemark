@@ -1,14 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
-
-import { StyledView } from '../styles';
+import { NavigationScreenProp } from 'react-navigation';
+import { Button } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Feed() {
-  return(
+import { StyledView, P } from '../styles';
+
+export interface FeedScreenProps {
+  navigation: NavigationScreenProp<any, any>;
+}
+
+export default function Feed({ navigation }: FeedScreenProps) {
+
+  return (
     <StyledView>
-      <StatusBar style="auto" />
-      <Text>Feed</Text>
+      <StatusBar style='auto' />
+      <P>Note Feed</P>
+      <Button title='Keep reading' onPress={() => navigation.navigate('Note')} />
     </StyledView>
   );
 }
+
+Feed.navigationOptions = {
+  title: 'Feed'
+};
