@@ -7,6 +7,11 @@ export const StyledView = styled.View`
   justify-content: center;
   align-items: center;
 `;
+export const StyledViewStretched = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: stretch;
+`;
 export const H1 = styled.Text`
   color: #0077cc;
   font-size: 48px;
@@ -19,4 +24,17 @@ export const P = styled.Text`
 export const IMG = styled.Image`
   width: 100%;
   height: 470px;
+`;
+export const FeedView = styled.View`
+  height: 70px;
+  overflow: hidden;
+  margin-bottom: 10px;
+`;
+export const Separator = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: #ced0d1;
+`;
+export const NoteView = styled.ScrollView`
+  padding: 10px;
 `;
