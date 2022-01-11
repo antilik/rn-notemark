@@ -1,5 +1,5 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 
 import { INavigationScreenProp } from './feed';
 
@@ -11,9 +11,9 @@ export default function NoteScreen({ navigation }: INavigationScreenProp) {
 
   return (
     <StyledView style={{ padding: 10 }}>
-      <StatusBar style='auto' />
+      <StatusBar style="auto" />
       <P>This is a note {id}</P>
-      <P>{achievement}</P>
+      <P>Achievement: {achievement}</P>
     </StyledView>
   );
 }
