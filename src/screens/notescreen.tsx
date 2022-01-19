@@ -1,19 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { useQuery, gql } from '@apollo/client';
 
 import { INavigationScreenProp } from './feed';
+import Note from '../components/Note';
 
 import { P, StyledView } from '../styles';
 
+const GET_NOTE = gql`
+  query note($id: ID!) {
+    note(id:$id) {
+      id
+      createdAt
+      content
+      favoriteCount
+      author {
+        username
+        id
+        avatar
+      }
+    }
+  }
+`;
+
 export default function NoteScreen({ navigation }: INavigationScreenProp) {
   const id = navigation.getParam('id');
-  const achievement = navigation.getParam('achievement');
+  const { loading, error, data } = useQuery(GET_NOTE, {variables: {id}});
+
+  if (loading) {
+    return <P>Loading</P>;
+  }
+  if (error) {
+    return <P>Error! Note not found</P>;
+  }
 
   return (
     <StyledView style={{ padding: 10 }}>
       <StatusBar style="auto" />
-      <P>This is a note {id}</P>
-      <P>Achievement: {achievement}</P>
+      <Note note={data.note} />
     </StyledView>
   );
 }

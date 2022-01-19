@@ -26,7 +26,7 @@ export const IMG = styled.Image`
   height: 470px;
 `;
 export const FeedView = styled.View`
-  height: 70px;
+  height: 90px;
   overflow: hidden;
   margin-bottom: 10px;
 `;
