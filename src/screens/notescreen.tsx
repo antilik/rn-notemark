@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 
 import { INavigationScreenProp } from './feed';
 import Note from '../components/Note';
+import Loading from '../components/Loading';
 
 import { P, StyledView } from '../styles';
 
@@ -28,7 +29,7 @@ export default function NoteScreen({ navigation }: INavigationScreenProp) {
   const { loading, error, data } = useQuery(GET_NOTE, {variables: {id}});
 
   if (loading) {
-    return <P>Loading</P>;
+    return <Loading />;
   }
   if (error) {
     return <P>Error! Note not found</P>;

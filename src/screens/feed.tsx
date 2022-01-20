@@ -3,6 +3,7 @@ import { NavigationScreenProp } from 'react-navigation';
 import { gql, useQuery } from '@apollo/client'
 
 import NoteFeed from '../components/NoteFeed';
+import Loading from '../components/Loading';
 import { P } from '../styles';
 
 export interface INavigationScreenProp {
@@ -29,7 +30,7 @@ export default function Feed(props: INavigationScreenProp) {
   const { loading, error, data } = useQuery(GET_NOTES);
 
   if (loading) {
-    return <P>Loading</P>;
+    return <Loading />;
   }
   if (error) {
     return <P>Error loading notes</P>;
